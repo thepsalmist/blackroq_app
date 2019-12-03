@@ -1,0 +1,285 @@
+{% extends "core/base.html"%}
+{% load static %}
+{% block content %}
+
+<body>
+    {% include "core/header.html"%}
+
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    <h1 class="page-title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End page header -->
+
+    <!-- property area -->
+    <div class="content-area single-property" style="background-color: #FCFCFC;">&nbsp;
+        <div class="container">
+
+            <div class="clearfix padding-top-40">
+                <div class="col-md-8 single-property-content prp-style-1 ">
+                    <div class="row">
+                        {% if object.main_photo %}
+                        <div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <a href="#" class="d-block mb-4 h-100">
+                                    <img class="img-fluid img-thumbnail" src="{{object.main_photo.url}}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if object.photo_1%}
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="{{object.photo_1.url}}" alt="">
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if object.photo_2%}
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="{{object.photo_2.url}}" alt="">
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if object.photo_3%}
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="{{object.photo_3.url}}" alt="">
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if object.photo_4%}
+                        <div class="col-lg-3 col-md-4 col-6">
+                            <a href="#" class="d-block mb-4 h-100">
+                                <img class="img-fluid img-thumbnail" src="{{object.photo_4.url}}" alt="">
+                            </a>
+                        </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="single-property-wrapper">
+                        <div class="single-property-header">
+                            <h1 class="property-title pull-left">{{object.title}}</h1>
+                            <span class="property-price pull-right">Ksh {{object.price}}</span>
+                        </div>
+
+                        <div class="property-meta entry-meta clearfix ">
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info-icon icon-tag">
+
+                                    <i class="fas fa-ad fa-lg"></i>
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Status</span>
+                                    <span class="property-info-value">{{object.get_category_display}}</span>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info icon-area">
+                                    <i class="fas fa-th-large fa-lg"></i>
+
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Area</span>
+                                    <span class="property-info-value">{{object.area}}<b class="property-info-unit">Sq
+                                            Ft</b></span>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info-icon icon-bed">
+
+                                    <i class="fas fa-bed fa-lg"></i>
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Bedrooms</span>
+                                    <span class="property-info-value">{{object.bedroom}}</span>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info-icon icon-bed">
+
+                                    <i class="fas fa-warehouse fa-lg"></i>
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Car garages</span>
+                                    <span class="property-info-value">{{object.garage}}</span>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info-icon icon-bath">
+
+                                    <i class="fas fa-shower fa-lg"></i>
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Bathrooms</span>
+                                    <span class="property-info-value">{{object.bathroom}}</span>
+                                </span>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-3 col-md-3 p-b-15">
+                                <span class="property-info-icon icon-garage">
+
+                                    <i class="fas fa-map-signs fa-lg"></i>
+                                </span>
+                                <span class="property-info-entry">
+                                    <span class="property-info-label">Location</span>
+                                    <span class="property-info-value">{{object.location}}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- .property-meta -->
+
+                        <div class="section">
+                            <h4 class="s-property-title">Description</h4>
+                            <div class="s-property-content">
+                                <p>{{object.description}} </p>
+                            </div>
+                        </div>
+                        <!-- End description area  -->
+                        <!-- End features area  -->
+
+                        <div class="section property-video">
+                            <h4 class="s-property-title">Property Video</h4>
+                            <div class="video-thumb">
+                                <a class="video-popup" href="https://www.youtube.com/watch?v=ICMPxpB_UPo"
+                                    title="Virtual Tour">
+                                    <img src="{% static 'assets/img/property-video.jpg' %}"
+                                        class="img-responsive wp-post-image" alt="Exterior">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- End video area  -->
+                        <div class="section property-share">
+                            <h4 class="s-property-title">Share width your friends </h4>
+                            <div class="roperty-social">
+                                <ul>
+                                    <li><a title="Share this on pinterest " href="#"><i
+                                                class="fab fa-pinterest-square fa-lg"></i></a></li>
+                                    <li><a title="Share this on facebook " href="#">
+                                            <i class="fab fa-facebook-square fa-lg"></i></a></li>
+                                    <li><a title="Share this on twitter " href="#"><i
+                                                class="fab fa-twitter fa-lg"></i></a>
+                                    </li>
+                                    <li><a title="Share this on linkedin " href="#"><i
+                                                class="fab fa-linkedin fa-lg"></i></a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End video area  -->
+
+                    </div>
+                </div>
+                <div class="col-md-4 p0">
+                    <aside class="sidebar sidebar-property blog-asside-right">
+                        <div class="dealer-widget">
+                            <div class="dealer-content">
+                                <div class="inner-wrapper">
+
+                                    <div class="clear">
+                                        <div class="col-xs-4 col-sm-4 dealer-face">
+                                            <a href="">
+                                                <img src="{{object.agent.photo.url}}" class="img-circle">
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 ">
+                                            <h3 class="dealer-name">
+                                                <h4>{{object.agent.name}}</h4>
+                                                <span>{{object.agent.occupation}}</span>
+                                            </h3>
+                                            <div class="dealer-social-media">
+                                                <a class="twitter" target="_blank" href="">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                                <a class="facebook" target="_blank" href="">
+                                                    <i class="fab fa-facebook"></i>
+                                                </a>
+                                                <a class="gplus" target="_blank" href="">
+                                                    <i class="fab fa-google-plus"></i>
+                                                </a>
+                                                <a class="linkedin" target="_blank" href="">
+                                                    <i class="fab fa-linkedin"></i>
+                                                </a>
+                                                <a class="instagram" target="_blank" href="">
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="clear">
+                                        <ul class="dealer-contacts">
+                                            <li><i class="pe-7s-mail strong"> </i> {{object.agent.email}}</li>
+                                            <li><i class="pe-7s-call strong"> </i> {{object.agent.phone_number}}</li>
+                                        </ul>
+                                        <p>{{object.agent.description}}</p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default sidebar-menu similar-property-wdg wow fadeInRight animated">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Similar Properties</h3>
+                            </div>
+                            <div class="panel-body recent-property-widget">
+                                {% for property in properties %}
+                                <ul>
+                                    {% if object.bedroom == property.bedroom %}
+                                    <li>
+                                        <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
+                                            <span class="property-seeker">
+                                                <b class="b-1">A</b>
+                                                <b class="b-2">S</b>
+                                            </span>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                                            <h6> <a href="single.html">{{property.title}}</a></h6>
+                                            <span class="property-price">Ksh {{property.price}}</span>
+                                        </div>
+                                    </li>
+                                    {% endif %}
+
+
+
+                                </ul>
+                                {%endfor %}
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Ads her </h3>
+                            </div>
+                            <div class="panel-body recent-property-widget">
+                                <img src="assets/img/ads.jpg">
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% include "core/footer.html"%}
+
+
+
+</body>
+{% endblock content%}
