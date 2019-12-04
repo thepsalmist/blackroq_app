@@ -87,7 +87,7 @@ DATABASES = {
         "NAME": "blackroqdb",
         "USER": "blackroqadmin",
         "PASSWORD": "#Thealchemist1994",
-        "HOST": "localhost",
+        "HOST": "*",
         "PORT": "",
     }
 }
