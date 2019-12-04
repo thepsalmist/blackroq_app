@@ -75,22 +75,22 @@ WSGI_APPLICATION = "blackroq.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#     }
-# }
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "blackroqdb",
-        "USER": "blackroqadmin",
-        "PASSWORD": "#Thealchemist1994",
-        "HOST": "*",
-        "PORT": "",
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "blackroqdb",
+#         "USER": "blackroqadmin",
+#         "PASSWORD": "#",
+#         "HOST": "*",
+#         "PORT": "",
+#     }
+# }
 
 
 # Password validation
