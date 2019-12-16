@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json
 
-with open('/etc/blackroq-config.json') as config_file:
+with open("/etc/blackroq-config.json") as config_file:
     config = json.load(config_file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = "wwh7c5v4=$ws5m-sqzs#hh!s&sbq-unlfy-f+tu%u(jz+=*)9="
-SECRET_KEY = config['SECRET_KEY']
+SECRET_KEY = config["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "178.79.156.68"]
 
 INSTALLED_APPS = [
     "core.apps.CoreConfig",
+    "users.apps.UsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
