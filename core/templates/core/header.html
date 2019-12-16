@@ -49,18 +49,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse yamm" id="navigation">
       <div class="button navbar-right">
-        <button class="navbar-btn nav-button wow bounceInRight login" onclick=" window.open('register.html')"
-          data-wow-delay="0.4s">Login</button>
-        <button class="navbar-btn nav-button wow fadeInRight" onclick=" window.open('submit-property.html')"
-          data-wow-delay="0.5s">Sign Up</button>
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}"><button class="navbar-btn nav-button wow bounceInRight login">Logout</button></a>
+        {% else %}
+        <a href="{% url 'login' %}"><button class="navbar-btn nav-button wow bounceInRight login">Login</button></a>
+        <a href="{% url 'register' %}"><button class="navbar-btn nav-button wow fadeInRight">Sign Up</button></a>
+        {% endif %}
       </div>
       <ul class="main-nav nav navbar-nav navbar-right">
         <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{% url 'core:home' %}">Home</a></li>
-        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{% url 'core:property_sale' %}">For
-            Sale</a>
-        </li>
-        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class="" href="{% url 'core:property_rent' %}">For
-            Rent</a>
+        <li class="wow fadeInDown" data-wow-delay="0.1s"><a class=""
+            href="{% url 'core:property_sale' %}">Properties</a>
         </li>
         <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="{% url 'core:contact'%}">Contact</a></li>
       </ul>

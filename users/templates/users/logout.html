@@ -1,0 +1,23 @@
+{% extends 'core/base.html'%}
+
+{% block content %}
+
+<body>
+    {% include 'core/header.html'%}
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    <h1 class="page-title">Welcome! Login</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center">
+        <h2>You have logged out</h2>
+        <span>
+            <a href="{% url 'login' %}">Log in</a>
+        </span>
+    </div>
+</body>
+{% endblock %}

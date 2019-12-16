@@ -146,3 +146,5 @@ AWS_S3_REGION_NAME = "us-east-2"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+LOGIN_REDIRECT_URL = "core:home"
+
