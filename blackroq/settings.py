@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -142,4 +143,6 @@ AWS_S3_REGION_NAME = "us-east-2"
 # AWS_DEFAULT_ACL = None
 
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
