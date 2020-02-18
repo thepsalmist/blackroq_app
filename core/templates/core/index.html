@@ -19,7 +19,7 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
           <h2>WELCOME TO BLACKROQ REALTORS</h2>
-          <p>Search for affordable properties to buy or rent all across Kenya.</p>
+          <p>We provide you with the best holiday homes in Kenya</p>
           <div class="search-form wow pulse" data-wow-delay="0.8s">
 
             <form action="" class=" form-inline">
@@ -32,16 +32,12 @@
                 <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins"
                   title="Select your city">
 
-                  <option>Karen</option>
-                  <option>Runda</option>
-                  <option>Muthaiga</option>
-                  <option>Garden Estate</option>
+                  <option>Malindi</option>
                 </select>
               </div>
               <div class="form-group">
                 <select id="basic" class="selectpicker show-tick form-control">
                   <option> -Status- </option>
-                  <option>Rent </option>
                   <option>Buy</option>
 
 
@@ -116,6 +112,7 @@
       </div>
     </div>
   </div>
+
   <!-- property area -->
   <div class="content-area recent-property" style="padding-bottom: 60px; background-color: rgb(252, 252, 252);">
     <div class="container">
@@ -124,7 +121,7 @@
           <!-- Properties for Sale -->
           <div class="col-md-12 ">
             <div class="banner_area">
-              <h2>Properties for Sale</h2>
+              <h2>Featured Properties</h2>
             </div>
             {% for property in latest_sales %}
             <div id="list-type" class="proerty-th">
@@ -148,31 +145,68 @@
             </div>
             {% endfor %}
           </div>
-          <!-- Properties for Rent -->
-          <div class="col-md-12 ">
-            <div class="banner_area">
-              <h2>Properties for Rent</h2>
-            </div>
-            <div id="list-type" class="proerty-th">
-              {% for property in latest_rentals %}
-              <div class="col-sm-6 col-md-3 p0">
-                <div class="box-two proerty-item">
-                  <div class="item-thumb">
-                    <a href="{{property.get_absolute_url}}"><img src="{{property.main_photo.url}}"></a>
-                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Welcome area -->
+  <div class="Welcome-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 Welcome-entry  col-sm-12">
+          <!-- <div class="col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
+            <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
 
-                  <div class="item-entry overflow">
-                    <h5><a href="{{property.get_absolute_url}}">{{property.title}} </a></h5>
-                    <div class="dot-hr"></div>
-                    <h4 class="s-property-title">{{property.get_location_display}}</h4>
-                    <span class="pull-left"><b> Area :</b> {{property.area}} sqm </span>
-                    <span class="proerty-price pull-right"> Ksh {{property.price}}</span>
-                    <p style="display: none;">{{property.description}}</p>
-
-                  </div>
+                  <h2>GARO ESTATE </h2>
                 </div>
               </div>
-              {% endfor %}
+            </div>
+          </div> -->
+          <div class="col-md-12 col-sm-6 col-xs-12">
+            <div class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
+              <div class="row">
+                <div class="col-xs-6 m-padding">
+                  <div class="welcome-estate">
+                    <div class="welcome-icon">
+                      <i class="pe-7s-home pe-4x"></i>
+                    </div>
+                    <h3>Any property</h3>
+                  </div>
+                </div>
+                <div class="col-xs-6 m-padding">
+                  <div class="welcome-estate">
+                    <div class="welcome-icon">
+                      <i class="pe-7s-users pe-4x"></i>
+                    </div>
+                    <h3>More Clients</h3>
+                  </div>
+                </div>
+
+
+                <div class="col-xs-12 text-center">
+                  <i class="welcome-circle"></i>
+                </div>
+
+                <div class="col-xs-6 m-padding">
+                  <div class="welcome-estate">
+                    <div class="welcome-icon">
+                      <i class="pe-7s-notebook pe-4x"></i>
+                    </div>
+                    <h3>Easy to use</h3>
+                  </div>
+                </div>
+                <div class="col-xs-6 m-padding">
+                  <div class="welcome-estate">
+                    <div class="welcome-icon">
+                      <i class="pe-7s-help2 pe-4x"></i>
+                    </div>
+                    <h3>Any help </h3>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
