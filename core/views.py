@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Property
+from blog.models import Post
 
 
 def index(request):
@@ -17,6 +18,7 @@ def index(request):
 def property_for_sale(request):
     sale = Property.objects.filter(category="SL")
     recommended = Property.objects.filter(category="SL").order_by("-listing_date")[:4]
+    latest_posts = Post.objects.order_by("-publish")[:4]
     paginator = Paginator(sale, 8)
     page_request_variable = "page"
     page = request.GET.get(page_request_variable)
@@ -30,6 +32,7 @@ def property_for_sale(request):
     context = {
         "properties": paginated_queryset,
         "recommended": recommended,
+        "latest_posts": latest_posts,
         "page_request_variable": page_request_variable,
     }
     return render(request, "core/property_for_sale.html", context)

@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce import HTMLField
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from taggit.managers import TaggableManager
@@ -18,6 +19,7 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True, unique_for_date="publish")
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    body = HTMLField()
     publish = models.DateTimeField(auto_now_add=True)
     created = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
