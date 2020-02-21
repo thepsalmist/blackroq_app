@@ -93,6 +93,7 @@
         margin-top: 15px;
     }
     .navbar-brand img{
+        height: auto;
         width: 110px;
     }
     .navbar-default .navbar-nav > li > a {

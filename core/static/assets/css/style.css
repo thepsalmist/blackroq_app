@@ -845,7 +845,6 @@ label small {
   margin-right: 20px
 }
 
-.navbar-brand {}
 
 .main-nav {
   padding-top: 10px;
@@ -1035,7 +1034,7 @@ label small {
 }
 
 .navbar-brand img {
-  height: 75px;
+  height: 60px;
   max-width: 100%;
   vertical-align: center;
 }
@@ -2883,7 +2882,6 @@ blog
 
 .blog-page .post .author-category, #blog-homepage .post .author-category {
   color: #999;
-  text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 0.08em;
 }
@@ -3286,7 +3284,7 @@ ul.footer-adress li {
 }
 
 .footer img {
-  height: 32px;
+  height: auto;
 }
 
 ul.footer-blog li {

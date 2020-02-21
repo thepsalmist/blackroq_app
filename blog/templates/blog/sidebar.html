@@ -1,0 +1,51 @@
+<div class="blog-asside-right col-md-3">
+    <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+        <div class="panel-heading">
+            <h3 class="panel-title">Property Advice</h3>
+        </div>
+        <div class="panel-body text-widget">
+            <p> Owning a property provides you with the opportunity for a second source of income through
+                renting
+            </p>
+        </div>
+    </div>
+    <div class="panel panel-default sidebar-menu wow  fadeInRight animated">
+        <div class="panel-heading">
+            <h3 class="panel-title">Search</h3>
+        </div>
+        <div class="panel-body">
+            <form role="search">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Search" type="text">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-smal">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="panel panel-default sidebar-menu wow fadeInRight animated">
+        <div class="panel-heading">
+            <h3 class="panel-title">Recommended</h3>
+        </div>
+        <div class="panel-body recent-property-widget">
+            <ul>
+                {% for property in properties %}
+                <li>
+                    <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                        <a href="{{property.get_absolute_url}}"><img src="{{property.main_photo.url}}"></a>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-8 blg-entry">
+                        <h6> <a href="{{property.get_absolute_url}}">{{property.title}}</a></h6>
+                        <span class="property-price">{{property.price}} Ksh</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

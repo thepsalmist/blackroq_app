@@ -149,10 +149,9 @@
                         <!-- End features area  -->
 
                         <div class="section property-video">
-                            <h4 class="s-property-title">Property Video</h4>
+                            <h4 class="s-property-title">Property Video Tour</h4>
                             <div class="video-thumb">
-                                <a class="video-popup" href="https://www.youtube.com/watch?v=ICMPxpB_UPo"
-                                    title="Virtual Tour">
+                                <a class="video-popup" href="{{object.video_url}}" target="_blank" title="Virtual Tour">
                                     <img src="{% static 'assets/img/property-video.jpg' %}"
                                         class="img-responsive wp-post-image" alt="Exterior">
                                 </a>
@@ -190,7 +189,11 @@
                                     <div class="clear">
                                         <div class="col-xs-4 col-sm-4 dealer-face">
                                             <a href="">
+                                                {% if object.agent.photo %}
                                                 <img src="{{object.agent.photo.url}}" class="img-circle">
+                                                {% else %}
+                                                <img src="{% static 'assets/img/default.jpeg' %}" class="img-circle">
+                                                {% endif %}
                                             </a>
                                         </div>
                                         <div class="col-xs-8 col-sm-8 ">
@@ -253,20 +256,8 @@
                                         </div>
                                     </li>
                                     {% endif %}
-
-
-
                                 </ul>
                                 {%endfor %}
-                            </div>
-                        </div>
-
-                        <div class="panel panel-default sidebar-menu wow fadeInRight animated">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Ads her </h3>
-                            </div>
-                            <div class="panel-body recent-property-widget">
-                                <img src="assets/img/ads.jpg">
                             </div>
                         </div>
                     </aside>

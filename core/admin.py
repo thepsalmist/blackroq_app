@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property, Agent, Testimonial
+from .models import Property, Agent, Testimonial, Booking
 
 
 @admin.register(Property)
@@ -18,3 +18,9 @@ class AgentAdmin(admin.ModelAdmin):
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = ("name", "message", "occupation")
+
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "phone_number", "booking_date")
+    list_filter = ("booking_date",)

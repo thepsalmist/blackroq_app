@@ -1,7 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from django.views.generic import DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Property, Testimonial
+from .models import Property, Testimonial, Contact
+from .forms import ContactForm
 from blog.models import Post
 
 
@@ -41,7 +43,23 @@ def property_for_sale(request):
 
 
 def contact(request):
-    return render(request, "core/contact.html", {})
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            name = form.cleaned_data.get("name")
+            messages.success(
+                request, f"Thank you{name} for contacting us, we will get back to you."
+            )
+            return redirect("core:home")
+    else:
+        form = ContactForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "core/contact.html", context)
 
 
 class PropertyDetailView(DetailView):
