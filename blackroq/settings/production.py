@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "213.52.130.133", "www.blackroq.co.ke"]
 
 
 DATABASES = {
