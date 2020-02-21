@@ -10,7 +10,9 @@ django-tinymce4-lite==1.7.5
 jsmin==2.2.2
 pathspec==0.6.0
 Pillow==6.2.1
+psycopg2==2.8.4
 psycopg2-binary==2.8.4
+python-decouple==3.3
 pytz==2019.3
 regex==2019.11.1
 sqlparse==0.3.0
