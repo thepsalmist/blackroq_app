@@ -1,6 +1,7 @@
 from django.db import models
 from tinymce import HTMLField
 from django.utils import timezone
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 from taggit.managers import TaggableManager
 
@@ -20,6 +21,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, unique_for_date="publish")
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     body = HTMLField()
+    thumbnail = models.ImageField(default="post.jpeg", upload_to="Post %Y%M%d")
     publish = models.DateTimeField(auto_now_add=True)
     created = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()

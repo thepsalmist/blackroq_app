@@ -1,16 +1,18 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Property
+from .models import Property, Testimonial
 from blog.models import Post
 
 
 def index(request):
     properties = Property.objects.all()
     latest_sales = Property.objects.filter(category="SL").order_by("-listing_date")[:4]
+    clients = Testimonial.objects.all()
     context = {
         "properties": properties,
         "latest_sales": latest_sales,
+        "clients": clients,
     }
     return render(request, "core/index.html", context)
 

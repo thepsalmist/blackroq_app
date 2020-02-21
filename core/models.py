@@ -18,11 +18,8 @@ CATEGORY_CHOICES = (
 )
 
 LOCATION_CHOICES = (
-    ("KR", "Karen"),
-    ("MT", "Muthaiga"),
-    ("RN", "Runda"),
-    ("GE", "Garden_Estate"),
-    ("RU", "Ruiru"),
+    ("ML", "Malindi"),
+    ("WT", "Watamu"),
 )
 
 
@@ -56,6 +53,10 @@ class Property(models.Model):
     photo_4 = models.ImageField(default="home.jpg", upload_to="Property/%Y/%m/%d")
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10, default="SL")
 
+    class Meta:
+        verbose_name = "Property"
+        verbose_name_plural = "Properties"
+
     def __str__(self):
         return self.title
 
@@ -70,3 +71,12 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return f"Message by {self.name}"

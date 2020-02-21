@@ -69,7 +69,7 @@
                 </div>
                 <div class="chart" data-percent="5000">
                   <h2 class="percent" id="counter">0</h2>
-                  <h5>HAPPY CUSTOMERS </h5>
+                  <h5>CUSTOMERS </h5>
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="chart" data-percent="12000">
                   <h2 class="percent" id="counter1">500</h2>
-                  <h5>Properties</h5>
+                  <h5>PROPERTIES</h5>
                 </div>
               </div>
             </div>
@@ -105,7 +105,6 @@
                   <h5>PARTNERS</h5>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -154,16 +153,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 Welcome-entry  col-sm-12">
-          <!-- <div class="col-md-4 col-md-offset-2 col-sm-6 col-xs-12">
-            <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
-
-                  <h2>GARO ESTATE </h2>
-                </div>
-              </div>
-            </div>
-          </div> -->
           <div class="col-md-12 col-sm-6 col-xs-12">
             <div class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
               <div class="row">
@@ -172,7 +161,7 @@
                     <div class="welcome-icon">
                       <i class="pe-7s-home pe-4x"></i>
                     </div>
-                    <h3>Any property</h3>
+                    <h3>Book property</h3>
                   </div>
                 </div>
                 <div class="col-xs-6 m-padding">
@@ -194,7 +183,7 @@
                     <div class="welcome-icon">
                       <i class="pe-7s-notebook pe-4x"></i>
                     </div>
-                    <h3>Easy to use</h3>
+                    <h3> to use</h3>
                   </div>
                 </div>
                 <div class="col-xs-6 m-padding">
@@ -219,7 +208,7 @@
       <div class="row">
         <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
           <!-- /.feature title -->
-          <h2>Our Customers Said </h2>
+          <h2>Customers Testimonials </h2>
         </div>
       </div>
 
@@ -227,46 +216,20 @@
         <div class="row testimonial">
           <div class="col-md-12">
             <div id="testimonial-slider">
+              {% for client in clients %}
               <div class="item">
                 <div class="client-text">
-                  <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                  <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                </div>
-                <div class="client-face wow fadeInRight" data-wow-delay=".9s">
-                  <img src="assets/img/client-face1.png" alt="">
-                </div>
-              </div>
-              <div class="item">
-                <div class="client-text">
-                  <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                  <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
+                  <p>{{client.message}}</p>
+                  <h4><strong>{{client.name}}</strong><i> {{client.occupation}}</i></h4>
                 </div>
                 <div class="client-face">
                   <img src="assets/img/client-face2.png" alt="">
                 </div>
               </div>
-              <div class="item">
-                <div class="client-text">
-                  <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                  <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                </div>
-                <div class="client-face">
-                  <img src="assets/img/client-face1.png" alt="">
-                </div>
-              </div>
-              <div class="item">
-                <div class="client-text">
-                  <p>Nulla quis dapibus nisl. Suspendisse llam sed arcu ultried arcu ultricies !</p>
-                  <h4><strong>Ohidul Islam, </strong><i>Web Designer</i></h4>
-                </div>
-                <div class="client-face">
-                  <img src="assets/img/client-face2.png" alt="">
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
