@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-from django.views.generic import DetailView
+from django.views.generic import DetailView, TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .models import Property, Testimonial, Contact
-from .forms import ContactForm
+from .models import Property, Testimonial, Contact, About
+from .forms import ContactForm, BookingForm
 from blog.models import Post
+
+
+class PropertyDetailView(DetailView):
+    model = Property
+    template_name = "core/property_details.html"
 
 
 def index(request):
@@ -42,6 +47,26 @@ def property_for_sale(request):
     return render(request, "core/property_for_sale.html", context)
 
 
+def book_property(request):
+    if request.method == "POST":
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            name = form.cleaned_data.get("name")
+            messages.success(
+                request, f"Thank you {name} for contacting us, we will get back to you."
+            )
+            return redirect("core:home")
+    else:
+        form = BookingForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "core/booking.html", context)
+
+
 def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
@@ -49,7 +74,7 @@ def contact(request):
             form.save()
             name = form.cleaned_data.get("name")
             messages.success(
-                request, f"Thank you{name} for contacting us, we will get back to you."
+                request, f"Thank you {name} for contacting us, we will get back to you."
             )
             return redirect("core:home")
     else:
@@ -62,6 +87,10 @@ def contact(request):
     return render(request, "core/contact.html", context)
 
 
-class PropertyDetailView(DetailView):
-    model = Property
-    template_name = "core/property_details.html"
+class AboutUsView(TemplateView):
+    template_name = "core/about_us.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["about"] = About.objects.first()
+        return context

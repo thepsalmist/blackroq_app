@@ -13,14 +13,18 @@ class ContactForm(forms.ModelForm):
         }
 
 
+class DateInput(forms.DateInput):
+    input_type = "date"
+
+
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = ("name", "email", "phone_number", "booking_date")
         widgets = {
             "name": forms.TextInput(attrs={"placeholder": "Name"}),
-            "email": forms.TextInput(attrs={"placeeholder": "Email"}),
+            "email": forms.TextInput(attrs={"placeholder": "Email"}),
             "phone_number": forms.NumberInput(),
-            "booking_date": forms.DateInput(),
+            "booking_date": DateInput(),
         }
 

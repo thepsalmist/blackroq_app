@@ -1,0 +1,57 @@
+{% extends 'core/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<body>
+    {% include 'core/header.html'%}
+    <div class="page-head">
+        <div class="container">
+            <div class="row">
+                <div class="page-head-content">
+                    <h1 class="page-title">Book Viewing Date</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End page header -->
+    <!-- property area -->
+    <div class="content-area recent-property padding-top-40" style="background-color: #FFF;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="" id="contact1">
+                        <!-- /.row -->
+                        <h2>Book Viewing</h2>
+                        <form method="POST" action=".">
+                            {%csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{form.name|as_crispy_field}}
+                                </div>
+                                <div class="col-sm-12">
+                                    {{form.email|as_crispy_field}}
+                                </div>
+                                <div class="col-sm-12">
+                                    {{form.phone_number|as_crispy_field}}
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    {{form.booking_date|as_crispy_field}}
+                                </div>
+                                <div class="col-sm-12 text-center">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Book
+                                        Viewing</button>
+                                </div>
+                            </div>
+                            <!-- /.row -->
+                        </form>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer area-->
+    {% include 'core/footer.html'%}
+</body>
+{% endblock %}

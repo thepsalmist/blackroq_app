@@ -1,0 +1,37 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% include "core/header.html" %}
+<div class="page-head">
+    <div class="container">
+        <div class="row">
+            <div class="page-head-content">
+                <h1 class="page-title">{{about.title}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End page header -->
+
+<div class="content-area blog-page padding-top-40" style="background-color: #FCFCFC; padding-bottom: 55px;">
+    <div class="container">
+        <div class="row">
+            <div class="blog-lst col-md-12 p0">
+                <section id="id-100" class="post single">
+
+                    <div id="post-content" class="post-body single wow fadeInLeft animated">
+                        <p>
+                            {{about.body|safe}}
+                        </p>
+                        <p>
+                    </div>
+
+                </section>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% include "core/footer.html" %}
+{% endblock %}
