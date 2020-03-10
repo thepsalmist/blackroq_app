@@ -39,11 +39,12 @@
             <div class="footer-title-line"></div>
             <p>Subscribe to receive our emails and newsletters</p>
 
-            <form>
+            <form method="POST" action=".">
+              {% csrf_token %}
               <div class="input-group">
-                <input class="form-control" type="text" placeholder="E-mail ... ">
+                <input class="form-control" type="text" name="email" placeholder="E-mail ... ">
                 <span class="input-group-btn">
-                  <button class="btn btn-primary subscribe" type="button"><i
+                  <button class="btn btn-primary subscribe" type="submit"><i
                       class="pe-7s-paper-plane pe-2x"></i></button>
                 </span>
               </div>

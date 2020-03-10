@@ -28,6 +28,7 @@ SECRET_KEY = config("SECRET_KEY")
 INSTALLED_APPS = [
     "core.apps.CoreConfig",
     "blog.apps.BlogConfig",
+    "marketting.apps.MarkettingConfig",
     "users.apps.UsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",

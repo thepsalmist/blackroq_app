@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Property, Testimonial, Contact, About
 from .forms import ContactForm, BookingForm
 from blog.models import Post
+from marketting.models import SignUp
 
 
 class PropertyDetailView(DetailView):
@@ -16,6 +17,14 @@ def index(request):
     properties = Property.objects.all()
     latest_sales = Property.objects.filter(category="SL").order_by("-listing_date")[:4]
     clients = Testimonial.objects.all()
+    if request.method == "POST":
+        email = request.POST["email"]
+        new_signup = SignUp()
+        new_signup.email = email
+        new_signup.save()
+        messages.info(request, "Thank you for subscribing")
+        return redirect("core:home")
+
     context = {
         "properties": properties,
         "latest_sales": latest_sales,
@@ -54,7 +63,8 @@ def book_property(request):
             form.save()
             name = form.cleaned_data.get("name")
             messages.success(
-                request, f"Thank you {name} for contacting us, we will get back to you."
+                request,
+                f"Thank you {name} for booking a viewing, we will get back to you.",
             )
             return redirect("core:home")
     else:
