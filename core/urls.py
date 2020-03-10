@@ -16,4 +16,5 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("booking/", views.book_property, name="book_property"),
     path("about/", AboutUsView.as_view(), name="about_us"),
+    path("search/", views.search, name="search"),
 ]

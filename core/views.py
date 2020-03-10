@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.db.models import Count, Q
 from django.views.generic import DetailView, TemplateView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Property, Testimonial, Contact, About
@@ -95,6 +96,18 @@ def contact(request):
     }
 
     return render(request, "core/contact.html", context)
+
+
+def search(request):
+    properties = Property.objects.all()
+    query = request.GET.get("query")
+    if query:
+        properties = properties.filter(Q(title__icontains=query)).distinct()
+
+    context = {
+        "properties": properties,
+    }
+    return render(request, "core/search.html", context)
 
 
 class AboutUsView(TemplateView):
