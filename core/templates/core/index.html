@@ -22,7 +22,7 @@
           <p>We provide you with the best holiday homes in Kenya</p>
           <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-            <form method="GET" class=" form-inline" action="{% url 'core:search' %}">
+            <form method="GET" class="form-inline" action="{% url 'core:search' %}">
               {% csrf_token %}
               <button class="btn  toggle-btn" type="button"><i class="fa fa-bars"></i></button>
 
@@ -31,18 +31,16 @@
                   placeholder="Key word">
               </div>
               <div class="form-group">
-                <select id="lunchBegins" class="selectpicker" data-live-search="true" data-live-search-style="begins"
+                <select name="location" class="selectpicker" data-live-search="true" data-live-search-style="begins"
                   title="Select your city">
-
+                  <option>Watamu</option>
                   <option>Malindi</option>
                 </select>
               </div>
               <div class="form-group">
-                <select id="basic" class="selectpicker show-tick form-control">
+                <select name="status" class="selectpicker show-tick form-control">
                   <option> -Status- </option>
                   <option>Buy</option>
-
-
                 </select>
               </div>
               <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>

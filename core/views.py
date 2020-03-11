@@ -98,11 +98,31 @@ def contact(request):
     return render(request, "core/contact.html", context)
 
 
+def is_valid_query(param):
+    return param != "" and param is not None
+
+
 def search(request):
     properties = Property.objects.all()
     query = request.GET.get("query")
+    minimum_price = request.GET.get("minimum_price")
+    maximum_price = request.GET.get("maximum_price")
+    maximum_area = request.GET.get("maximum_area")
+    minimum_area = request.GET.get("minimum_area")
+    location = request.GET.get("location")
+
     if query:
         properties = properties.filter(Q(title__icontains=query)).distinct()
+    if is_valid_query(minimum_price):
+        properties = properties.filter(price__gte=minimum_price)
+    if is_valid_query(maximum_price):
+        properties = properties.filter(price__lte=maximum_price)
+    if is_valid_query(minimum_area):
+        properties = properties.filter(area__gte=minimum_area)
+    if is_valid_query(maximum_area):
+        properties = properties.filter(area__lte=maximum_area)
+    if is_valid_query(location) and location != "Choose...":
+        properties = properties.filter(Q(location__icontains=location))
 
     context = {
         "properties": properties,
