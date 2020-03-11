@@ -21,7 +21,6 @@
         <div class="container">
             <div class="row">
 
-                {% include "core/sidebar.html" with latest_posts=latest_posts %}
 
                 <div class=" col-md-9 pr0 padding-top-40 properties-page">
 
@@ -79,6 +78,8 @@
                         </div>
                     </div>
                 </div>
+
+                {% include "core/sidebar.html" with latest_posts=latest_posts %}
             </div>
         </div>
     </div>
