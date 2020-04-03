@@ -17,11 +17,6 @@ CATEGORY_CHOICES = (
     ("RE", "Rent"),
 )
 
-LOCATION_CHOICES = (
-    ("MALINDI", "Malindi"),
-    ("WATAMU", "Watamu"),
-)
-
 
 class Agent(models.Model):
     name = models.CharField(max_length=100)
@@ -45,9 +40,7 @@ class Property(models.Model):
     description = models.TextField()
     video_url = models.URLField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    location = models.CharField(
-        choices=LOCATION_CHOICES, max_length=20, default="MALINDI"
-    )
+    location = models.CharField(max_length=50, default="MALINDI")
     listing_date = models.DateTimeField(auto_now_add=True)
     main_photo = models.ImageField(default="blackroq_3.jpg")
     photo_1 = models.ImageField(blank=True, upload_to="Property/%Y/%m/%d")
