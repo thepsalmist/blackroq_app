@@ -39,8 +39,9 @@
                             <label for="inputState">Location</label>
                             <select id="inputState" name="location" class="form-control">
                                 <option selected>Choose...</option>
-                                <option>Watamu</option>
-                                <option>Malindi</option>
+                                {% for property in properties%}
+                                <option value="{{property.location}}">{{property.location}}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>

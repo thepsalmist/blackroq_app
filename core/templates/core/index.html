@@ -33,14 +33,16 @@
               <div class="form-group">
                 <select name="location" class="selectpicker" data-live-search="true" data-live-search-style="begins"
                   title="Select your city">
-                  <option>Watamu</option>
-                  <option>Malindi</option>
+                  <option selected>Choose...</option>
+                  {% for property in properties %}
+                  <option value="{{property.location}}">{{property.location}}</option>
+                  {% endfor %}
                 </select>
               </div>
               <div class="form-group">
                 <select name="status" class="selectpicker show-tick form-control">
                   <option> -Status- </option>
-                  <option>Buy</option>
+                  <option>Sell</option>
                 </select>
               </div>
               <button class="btn search-btn" type="submit"><i class="fa fa-search"></i></button>
