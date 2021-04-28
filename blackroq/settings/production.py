@@ -1,8 +1,9 @@
 from .base import *
+import dj_database_url
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "213.52.130.133", "blackroq.co.ke", "www.blackroq.co.ke"]
+ALLOWED_HOSTS = ["127.0.0.1", "blackroq.herokuapp.com", "www.blackroq.co.ke"]
 
 
 DATABASES = {
@@ -15,3 +16,6 @@ DATABASES = {
         "PORT": "",
     }
 }
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES["default"].update(db_from_env)
+
