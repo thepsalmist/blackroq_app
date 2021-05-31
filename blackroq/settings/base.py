@@ -27,6 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "core.apps.CoreConfig",
     "blog.apps.BlogConfig",
     "marketting.apps.MarkettingConfig",
@@ -36,7 +37,6 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "crispy_forms",
     "taggit",
