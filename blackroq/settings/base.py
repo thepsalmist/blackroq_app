@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -26,6 +30,7 @@ SECRET_KEY = config("SECRET_KEY")
 # Application definition
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "core.apps.CoreConfig",
     "blog.apps.BlogConfig",
     "marketting.apps.MarkettingConfig",
@@ -39,10 +44,12 @@ INSTALLED_APPS = [
     "crispy_forms",
     "taggit",
     "tinymce",
+    "cloudinary",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -116,3 +123,13 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGIN_REDIRECT_URL = "core:home"
 
+# Whitenoise
+WHITENOISE_USE_FINDERS = True
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Cloudinary
+cloudinary.config(
+    cloud_name=config("cloud_name"),
+    api_key=config("api_key"),
+    api_secret=config("api_secret"),
+)
