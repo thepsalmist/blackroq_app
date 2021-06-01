@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import json
 from decouple import config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "taggit",
     "tinymce",
+    "cloudinary",
 ]
 
 MIDDLEWARE = [
@@ -122,3 +126,10 @@ LOGIN_REDIRECT_URL = "core:home"
 # Whitenoise
 WHITENOISE_USE_FINDERS = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Cloudinary
+cloudinary.config(
+    cloud_name=config("cloud_name"),
+    api_key=config("api_key"),
+    api_secret=config("api_secret"),
+)
