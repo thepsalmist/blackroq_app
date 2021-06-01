@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from cloudinary.models import CloudinaryField
 
 
 BEDROOM_CHOICES = (
@@ -21,7 +22,7 @@ CATEGORY_CHOICES = (
 class Agent(models.Model):
     name = models.CharField(max_length=100)
     occupation = models.CharField(max_length=100)
-    photo = models.ImageField(blank=True, upload_to="Agents/%Y/%m/%d")
+    photo = CloudinaryField("photo")
     description = models.TextField(blank=True)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
@@ -42,11 +43,11 @@ class Property(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     location = models.CharField(max_length=50, default="MALINDI")
     listing_date = models.DateTimeField(auto_now_add=True)
-    main_photo = models.ImageField(default="blackroq_3.jpg")
-    photo_1 = models.ImageField(blank=True, upload_to="Property/%Y/%m/%d")
-    photo_2 = models.ImageField(blank=True, upload_to="Property/%Y/%m/%d")
-    photo_3 = models.ImageField(blank=True, upload_to="Property/%Y/%m/%d")
-    photo_4 = models.ImageField(blank=True, upload_to="Property/%Y/%m/%d")
+    main_photo = CloudinaryField(default="blackroq_3.jpg")
+    photo_1 = CloudinaryField("photo_1")
+    photo_2 = CloudinaryField("photo_2", blank=True)
+    photo_3 = CloudinaryField("photo_3", blank=True)
+    photo_4 = CloudinaryField("photo_4", blank=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10, default="SL")
 
     class Meta:
